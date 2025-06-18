@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% block content %}
+<!-- Parallax Hero Section -->
+<style>
+    .parallax {
+        background-image: url("{{ url_for('static', filename='images/map.png') }}");
+        min-height: 500px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 1px 1px 5px black;
+        border-radius: 20px;
+    }
+
+    .marker {
+        position: absolute;
+        top: 55%;
+        left: 60%;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        animation: pulse 1.5s infinite;
+        box-shadow: 0 0 10px red;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.5); opacity: 0.6; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+</style>
+
+<div class="parallax mb-4">
+    <div class="overlay p-4 text-center">
+        <h1 class="display-4 animate__animated animate__fadeInDown">Explore Mohenjo-daro</h1>
+        <p class="lead animate__animated animate__fadeInUp">An ancient marvel on the banks of the Indus River</p>
+        <div class="marker" title="Mohenjo-daro"></div>
+    </div>
+</div>
+
+<!-- Info Cards -->
+<div class="row text-center">
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-lg border-0 animate__animated animate__fadeInLeft">
+            <div class="card-body">
+                <h4 class="card-title">Coordinates</h4>
+                <p class="card-text">Latitude: <strong>27.3294° N</strong><br>Longitude: <strong>68.1386° E</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-lg border-0 animate__animated animate__fadeInRight">
+            <div class="card-body">
+                <h4 class="card-title">Location</h4>
+                <p class="card-text">Sindh Province, Pakistan — near the Indus River</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Google Map -->
+<div class="ratio ratio-16x9 mt-4 rounded shadow-lg animate__animated animate__fadeIn">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.499624340506!2d68.136425!3d27.328934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3936bbf099693a2d%3A0xeffec1b1ae8938c2!2sMohenjo-daro%20Archaeological%20Ruins!5e0!3m2!1sen!2s!4v1718728041257!5m2!1sen!2s"
+        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+<!-- 360° Street View -->
+<h3 class="mt-5 mb-3 text-center animate__animated animate__fadeInUp">🔄 360° Street View of Mohenjo-daro</h3>
+<div class="ratio ratio-16x9 mb-5 rounded shadow-lg animate__animated animate__fadeInUp">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!4v1718728964494!6m8!1m7!1sCAoSLEFGMVFpcE1wSWQtVXpCSzZUbkU3QUlITzRpYUNkZ0pnbnB4ZTR0bWlTNmRw!2m2!1d27.3275218!2d68.1385292!3f270!4f0!5f0.7820865974627469" 
+        style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+<!-- Animate.css CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{% endblock %}

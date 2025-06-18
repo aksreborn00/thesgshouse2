@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+{% block content %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History of Mohenjo-daro</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: url({{ url_for('static', filename='images/bg1.jpg') }}) center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 5px #000;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3rem;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: slideUp 1s ease-in-out;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .image-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: #ccc;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>History of Mohenjo-daro</h1>
+  </header>
+
+  <section>
+    <h2>Introduction</h2>
+    <p>Mohenjo-daro, meaning "Mound of the Dead," is an archaeological site in the province of Sindh, Pakistan. Built around 2500 BCE, it was one of the largest settlements of the ancient Indus Valley Civilization and one of the world's earliest major cities.</p>
+
+    <h2>Urban Planning and Architecture</h2>
+    <p>The city was known for its advanced urban planning, including grid-like streets, elaborate drainage systems, and well-built houses. The Great Bath, a large public water tank, is one of its most remarkable structures.</p>
+
+    <h2>Decline</h2>
+    <p>Mohenjo-daro was abandoned around 1900 BCE for unknown reasons. Theories include climate change, tectonic activity, or invasion. The exact cause remains a subject of research and debate.</p>
+
+    <div class="image-gallery">
+      <img src="{{ url_for('static', filename='images/daro1.jpg') }}" />
+      <img src="{{ url_for('static', filename='images/daro2.jpg') }}" />
+      <img src="{{ url_for('static', filename='images/daro3.jpg') }}" alt="Great Bath of Mohenjo-daro" />
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ancient Civilizations Archive</p>
+  </footer>
+</body>
+</html>
+
+{% endblock %}

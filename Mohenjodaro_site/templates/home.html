@@ -1,0 +1,127 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohenjo-daro: The Ancient Marvel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      height: 100vh;
+      background: url({{ url_for('static', filename='images/bg3.jpg') }}) center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      animation: fadeIn 3s ease-out forwards;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px 40px;
+      border-radius: 15px;
+      color: #00ffe7;
+      animation: slideDown 2s ease-out;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeUp 2s ease-in-out;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #00ffe7;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      padding: 30px;
+      background-color: #111;
+      text-align: center;
+      color: #bbb;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mohenjo-daro</h1>
+    <p>The Ancient Marvel of the Indus Valley Civilization</p>
+  </header>
+
+  <section>
+    <h2>Explore the Legacy</h2>
+    <div class="gallery">
+      <img src="{{ url_for('static', filename='images/daro3.jpg') }}" alt="Great Bath">
+      <img src="{{ url_for('static', filename='images/dancing_girl.png') }}" alt="Dancing Girl">
+      <img src="{{ url_for('static', filename='images/indus.png') }}" alt="Priest King">
+      <img src="{{ url_for('static', filename='images/seal.png') }}" alt="Seals">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Discover Mohenjo-daro. Designed for explorers of history.</p>
+  </footer>
+</body>
+</html>
+{% endblock %}
